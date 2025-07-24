@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< Updated upstream
 <html>
 
 <head>
@@ -11,6 +12,294 @@
 <body>
   Hello world
   <script src="script.js"></script>
+=======
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charity Water Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background: #1d1d1d;
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+/* Layer 1 - slowest bubbles, largest size */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('images/bubbles.png') repeat;
+  background-size: 80px 80px;
+  opacity: 0.03;
+  z-index: -3;
+  animation: bubbleMove1 140s linear infinite;
+}
+
+/* Layer 2 - medium speed, medium size */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('images/bubbles.png') repeat;
+  background-size: 200px 200px;
+  opacity: 0.04;
+  z-index: -2;
+  animation: bubbleMove2 100s linear infinite;
+}
+
+/* Layer 3 - fastest bubbles, smallest size */
+.bubble-layer3 {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  background: url('images/bubbles.png') repeat;
+  background-size: 120px 120px;
+  opacity: 0.06;
+  z-index: -1;
+  animation: bubbleMove3 60s linear infinite;
+}
+
+/* Animations for different speeds */
+@keyframes bubbleMove1 {
+  0% { background-position: 0 100%; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes bubbleMove2 {
+  0% { background-position: 0 100%; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes bubbleMove3 {
+  0% { background-position: 0 100%; }
+  100% { background-position: 0 0; }
+}
+
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: left;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .hero {
+      display: flex;
+      align-items: left;
+      padding: 0;
+      position: relative;
+      z-index: 2;
+
+      align-self: flex-start;
+    }
+
+    .hero img {
+      width: 100%;
+      max-height: 600px;
+      object-fit: scale-down;
+      align-content: flex-start;
+      object-position: left;
+    }
+
+    .hero-dropdown {
+      position: fixed;
+      top: 40px;
+      right: 40px;
+      background-color: #eee;
+      padding: 20px;
+      border-radius: 8px;
+      color: black;
+      width: 250px;
+      z-index: 3;
+    }
+
+    #amount-options button {
+      display: inline-block;
+      margin: 5px;
+    }
+
+    .progress-ring {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 6px solid transparent;
+      border-top: 6px solid white;
+      animation: rotateRing 4s linear infinite;
+      margin: 40px auto;
+    }
+
+    @keyframes rotateRing {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .donation-bar {
+      background: linear-gradient(to right, #00264d, #5da9dd);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      position: sticky;
+      bottom: 0;
+      z-index: 3;
+      flex-wrap: wrap;
+    }
+
+    .donation-bar .progress {
+      flex-grow: 1;
+      height: 20px;
+      background: #111;
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 10px 20px;
+      position: relative;
+    }
+
+    .donation-bar .progress span {
+      display: block;
+      height: 100%;
+      background-color: #ffcc29;
+      width: 25%;
+    }
+
+    .donation-bar .raised,
+    .donation-bar .remaining {
+      background: #111;
+      color: #ffcc29;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    .donate-button {
+      background-color: #ffcc29;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    @media (max-width: 600px) {
+      .hero-dropdown {
+        position: relative;
+        width: 100%;
+        margin-top: -50px;
+      }
+
+      .donation-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .donation-bar .progress {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo" onclick="window.open('https://www.charitywater.org/', '_blank')">charity: water</div>
+  </header>
+
+  <section class="hero">
+    <img src="/images/charitywaterheroimage.png" alt="Charity Water Hero" />
+    <div class="hero-dropdown">
+      <label for="donate-type">Donate:</label>
+      <select id="donate-type" onchange="showAmountOptions(this.value)">
+        <option value="once">Give Once</option>
+        <option value="monthly">Give Monthly</option>
+      </select>
+      <div id="amount-options" style="margin-top: 10px;"></div>
+    </div>
+  </section>
+
+  <section style="padding: 100px 50px; text-align: center;">
+    <p style="font-size: 1.2rem;">100% of your donation goes directly to clean water projects.</p>
+    <div class="progress-ring"></div>
+  </section>
+
+  <div class="donation-bar">
+    <div class="raised">$2,437.22 raised</div>
+    <div class="progress"><span></span></div>
+    <div class="remaining">$7,562.78 remaining</div>
+    <button class="donate-button" onclick="showParticles(event)">give</button>
+  </div>
+
+  <script>
+    function showAmountOptions(type) {
+      const container = document.getElementById('amount-options');
+      container.innerHTML = '';
+      ['5', '20', '100', 'Custom'].forEach(amount => {
+        const btn = document.createElement('button');
+        btn.textContent = `$${amount}`;
+        btn.className = 'donate-button';
+        btn.onclick = () => alert(`Thanks for choosing to give $${amount}!`);
+        container.appendChild(btn);
+      });
+    }
+
+    function showParticles(event) {
+      for (let i = 0; i < 10; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.style.position = 'fixed';
+        sparkle.style.top = `${event.clientY + (Math.random() * 40 - 20)}px`;
+        sparkle.style.left = `${event.clientX + (Math.random() * 40 - 20)}px`;
+        sparkle.style.width = '6px';
+        sparkle.style.height = '6px';
+        sparkle.style.borderRadius = '50%';
+        sparkle.style.background = 'pink';
+        sparkle.style.boxShadow = '0 0 8px white';
+        sparkle.style.pointerEvents = 'none';
+        sparkle.style.zIndex = 10;
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 1000);
+      }
+    }
+  </script>
+>>>>>>> Stashed changes
 </body>
 
 </html>
